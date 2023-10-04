@@ -1,0 +1,44 @@
+@import "./variables";
+
+@mixin flex($horizontal: flex-start, $vertical: flex-start, $wrap: nowrap) {
+  display: flex;
+  justify-content: $horizontal;
+  align-items: $vertical;
+  flex-direction: $wrap;
+}
+
+
+@mixin link($color, $bg-color) {
+  & {
+    @content;
+  }
+
+  &:link {
+    @content;
+  }
+
+  &:visited {
+    @content;
+  }
+
+  &:hover, &--current {
+    @content;
+    color: $color;
+    background-color: $bg-color;
+  }
+
+  &:active {
+    @content;
+  }
+
+}
+
+
+@mixin font-face($font-name, $font-file) {
+  @font-face {
+    font-family: $font-name;
+    src: url('#{$font-path}/#{$font-file}.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+}
